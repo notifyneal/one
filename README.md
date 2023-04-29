@@ -4,9 +4,12 @@ This repository contains a sample Golang web application project that serves as 
 
 ## Features
 
-- Basic HTTP server listening on port 8080
-- `/status` endpoint for health checks
-- `/echo` endpoint for echoing request messages
+- Basic HTTP server listening on port 8080 with `Status` and `Echo` handlers, which provide a solid starting point for implementing custom handlers that receive and return JSON data.
+- `/status` endpoint for health checks:
+  - A simple example of a handler that returns JSON data, which can be used as a starting point for creating more complex handlers that receive and return JSON.
+- `/echo` endpoint for echoing request messages:
+  - Demonstrates how to read JSON data from a request and return it in the response. This can be adapted for more advanced use cases where processing or modification of the data is needed.
+
 
 ## Getting Started
 
