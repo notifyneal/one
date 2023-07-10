@@ -7,6 +7,7 @@ all: build run
 
 build:
 	cd web; npm install; npm run build
+	go build
 	docker build -t $(IMAGE_NAME) .
 
 run:
