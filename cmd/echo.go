@@ -21,7 +21,7 @@ func Echo() http.Handler {
 		_ = json.NewDecoder(r.Body).Decode(&message)
 		fmt.Println(string(requestDump))
 		fmt.Println(message.Message)
-
+		json.NewEncoder(w).Encode(message)
 	})
 
 }
