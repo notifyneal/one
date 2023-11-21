@@ -11,7 +11,7 @@ type Message struct {
 	Message string `json:"message"`
 }
 
-func Echo() http.Handler {
+func Post() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		var message Message
 		requestDump, err := httputil.DumpRequest(r, true)

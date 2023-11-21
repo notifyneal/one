@@ -1,6 +1,5 @@
 /*
 Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -22,8 +21,8 @@ var rootCmd = &cobra.Command{
 	Short: "A golang web application starter project",
 	Long:  `A golang web application starter porject `,
 	Run: func(cmd *cobra.Command, args []string) {
-		http.Handle("/status", Status())
-		http.Handle("/echo", Echo())
+		http.Handle("/status", Get())
+		http.Handle("/echo", Post())
 		index := http.FileServer(http.Dir(webroot))
 		http.Handle("/", index)
 		fmt.Println("Server Listening on 8080")

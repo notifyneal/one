@@ -9,7 +9,7 @@ type HealthCheck struct {
 	Status string `json:"status"`
 }
 
-func Status() http.Handler {
+func Get() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		status := HealthCheck{Status: "Ok"}
 		json.NewEncoder(w).Encode(status)
