@@ -14,6 +14,7 @@ import (
 
 var cfgFile string
 var webroot string
+var port string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
@@ -25,10 +26,10 @@ var rootCmd = &cobra.Command{
 		http.Handle("/echo", Post())
 		index := http.FileServer(http.Dir(webroot))
 		http.Handle("/", index)
-		fmt.Println("Server Listening on 8080")
+		fmt.Println("Server Listening on port: " + port + " ...")
 		srv := &http.Server{
 			Handler: nil,
-			Addr:    ":8080",
+			Addr:    ":" + port,
 		}
 		srv.ListenAndServe()
 
@@ -55,6 +56,7 @@ func init() {
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.server.yaml)")
 	rootCmd.PersistentFlags().StringVarP(&webroot, "webroot", "w", "./web/dist", " define the web root folder")
+	rootCmd.PersistentFlags().StringVarP(&port, "port", "p", "8080", "specify port to listen on (default: 8080)")
 }
 
 // initConfig reads in config file and ENV variables if set.
