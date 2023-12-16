@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -77,6 +78,11 @@ func initConfig() {
 		viper.AddConfigPath(home)
 		viper.SetConfigType("yaml")
 		viper.SetConfigName(".server")
+	}
+
+	err := godotenv.Load(".env")
+	if err != nil {
+		fmt.Println("Error loading .env file")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
