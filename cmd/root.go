@@ -34,8 +34,7 @@ var rootCmd = &cobra.Command{
 		}
 
 		if err := srv.ListenAndServe(); err != nil {
-			fmt.Println(err)
-			return
+			panic(err)
 		}
 
 	},
