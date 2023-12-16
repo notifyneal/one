@@ -31,7 +31,11 @@ var rootCmd = &cobra.Command{
 			Handler: nil,
 			Addr:    ":" + port,
 		}
-		srv.ListenAndServe()
+
+		if err := srv.ListenAndServe(); err != nil {
+			fmt.Println(err)
+			return
+		}
 
 	},
 }
