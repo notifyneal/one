@@ -79,11 +79,9 @@ func initConfig() {
 		viper.SetConfigName(".server")
 	}
 
-	err := godotenv.Load(".env")
-	if err != nil {
+	if err := godotenv.Load(); err != nil {
 		fmt.Println("Error loading .env file")
 	}
-
 	viper.AutomaticEnv() // read in environment variables that match
 
 	// If a config file is found, read it in.
