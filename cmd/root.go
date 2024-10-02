@@ -25,6 +25,10 @@ var rootCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		http.Handle("/status", Get())
 		http.Handle("/echo", Post())
+		// Check if the webroot is valid directory if not panic
+		if _, err := os.Stat(webroot); os.IsNotExist(err) {
+			panic("webroot is not a valid directory")
+		}
 		index := http.FileServer(http.Dir(webroot))
 		http.Handle("/", index)
 		fmt.Println("Server Listening on port: " + port + " ...")
