@@ -4,8 +4,8 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 */
 package main
 
-import "server/cmd"
+import "service/server"
 
 func main() {
-	cmd.Execute()
+	server.Execute()
 }

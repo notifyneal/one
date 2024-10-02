@@ -1,4 +1,4 @@
-module server
+module service
 
 go 1.21
 
