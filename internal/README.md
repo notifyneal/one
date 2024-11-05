@@ -12,6 +12,10 @@ To create such a package, place it in a directory named `internal` or in a subdi
 
 For Go 1.4, the internal package mechanism is enforced for the main Go repository; from 1.5 and onward it will be enforced for any repository.
 
+## Additional Notes on Current Project
+
+Currently, this project does not have new internal packages beyond the standard structure, but users are encouraged to utilize the internal package mechanism for separating non-exported code modules for better encapsulation and management of code dependencies.
+
 ## More Information
 
 Full details of the mechanism are in the [design document](https://golang.org/s/go14internal).
